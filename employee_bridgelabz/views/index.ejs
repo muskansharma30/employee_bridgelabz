@@ -8,6 +8,15 @@
 
 <h1>Employee Payroll Dashboard</h1>
 
+<h2>Add Employee</h2>
+
+<form action="/add" method="POST">
+  <input name="name" placeholder="Name" required>
+  <input name="department" placeholder="Department" required>
+  <input name="basicSalary" placeholder="Salary" required>
+  <button>Add Employee</button>
+</form>
+
 <table>
     <tr>
         <th>ID</th>
@@ -31,7 +40,12 @@
             <td>₹ <%= emp.basicSalary %></td>
             <td>₹ <%= tax %></td>
             <td>₹ <%= netSalary %></td>
+            <td>
+                <a href="/edit/<%= emp.id %>">Edit</a> |
+                <a href="/delete/<%= emp.id %>">Delete</a>
+            </td>
         </tr>
+        
     <% }) %>
 </table>
 
